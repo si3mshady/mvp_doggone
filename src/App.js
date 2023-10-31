@@ -14,7 +14,6 @@ Amplify.configure(
 // Amplify.configure(awsconfig);
 
 
-
 const App = () => {
   const [images, setImages] = useState([]);
   const [location, setLocation] = useState(null);
