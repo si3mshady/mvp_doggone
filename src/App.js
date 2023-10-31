@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Webcam from "react-webcam";
 import "./App.css";
-
 import { Amplify, API} from 'aws-amplify';
 import awsmobile from './aws-exports';
 
@@ -85,7 +84,7 @@ async function getData() {
 
   async function sendImageToServer(data) {
 
-      
+
     fetch(apiBaseUrl, {
     method: 'POST',
     headers: {
