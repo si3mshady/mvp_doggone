@@ -10,7 +10,6 @@ import { Amplify, API} from 'aws-amplify';
 
 
 
-
 const App = () => {
   const [images, setImages] = useState([]);
   const [location, setLocation] = useState(null);
@@ -20,7 +19,19 @@ const App = () => {
   const [uploading, setUploading] = useState(false);
   const [isCapturing, setIsCapturing] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
+  const [data, setPostData] = useState({body: {}, headers: {}});
+
+
   const [resp, setResp] = React.useState("")
+
+    //replace this with the path you have configured on your API
+  // const myInit = {
+  //   body: {}, // replace this with attributes you need
+  //   headers: {} // OPTIONAL
+  // };
+
+   
+
 
   useEffect(() =>
   {
@@ -131,11 +142,38 @@ async function getData() {
     if (screenshot) {
       setImage(screenshot);
 
+      const b64data = JSON.stringify(screenshot)
+      const apiName = 'mvp'; // replace this with your api name.
+      const path = '/upload';
+
+      const myInit = {
+        body: {b64data}, // replace this with attributes you need
+        headers: {} // OPTIONAL
+      };
+
+      API.post(apiName, path, myInit)
+      .then((response) => {
+        // Add your code here
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+
+
       navigator.geolocation.getCurrentPosition((position) => {
         setLocation({
           latitude: hashString(position.coords.latitude).splice(0,5) ,
           longitude: hashString(position.coords.longitude).splice(0,5),
         });
+
+
+
+
+
+
+
+
       });
     } else {
       console.log("Invalid image format. Please capture a PNG or JPEG image.");
