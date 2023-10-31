@@ -3,17 +3,10 @@ import Webcam from "react-webcam";
 import "./App.css";
 
 import { Amplify, API} from 'aws-amplify';
-// import {awsmobile} from './aws-exports';
-Amplify.configure({
-  "aws_project_region": "us-east-1",
-  "aws_cloud_logic_custom": [
-      {
-          "name": "mvp",
-          "endpoint": "https://7gpc9myaue.execute-api.us-east-1.amazonaws.com/dev",
-          "region": "us-east-1"
-      }
-  ]
-});
+import awsmobile from './aws-exports';
+Amplify.configure(
+  awsmobile
+);
 
 // import { withAuthenticator } from '@aws-amplify/ui-react';
 // import awsconfig from './aws-exports';
