@@ -84,7 +84,6 @@ async function getData() {
 
   async function sendImageToServer(data) {
 
-
     fetch(apiBaseUrl, {
     method: 'POST',
     headers: {
