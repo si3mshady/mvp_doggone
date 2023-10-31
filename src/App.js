@@ -3,7 +3,8 @@ import Webcam from "react-webcam";
 import "./App.css";
 
 import { Amplify, API} from 'aws-amplify';
-import awsmobile from './aws-exports';
+import './aws-exports';
+
 Amplify.configure(
   awsmobile
 );
