@@ -32,6 +32,15 @@ const App = () => {
 
    
 
+
+  useEffect(() =>
+  {
+    const apiName = 'imageUpload';
+    const path = '/uploader';
+    API.post(apiName, path).then((res) => console.log(res))
+
+
+  },[])
   // Define a state variable to keep track of the last uploaded image key
 
   const apiBaseUrl = process.env.REACT_APP_API_URL  || 'http://3.85.16.0:5000/upload';
@@ -39,7 +48,15 @@ const App = () => {
 // Now, you can use the apiBaseUrl variable in your component
 
 
+async function getData() {
+  const apiName = 'imageUpload';
+  const path = '/uploader';
+  const myInit = {
+    headers: {} // OPTIONAL
+  };
 
+  return API.get(apiName, path, myInit);
+}
 
 
 // try {
@@ -165,7 +182,7 @@ const App = () => {
       headers: {} // OPTIONAL
     };
 
-    API.post(apiName, path, myInit)
+    API.post('mvp', '/upload', myInit)
     .then((response) => {
       // Add your code here
       console.log(response)
