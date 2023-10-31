@@ -146,20 +146,7 @@ async function getData() {
       const apiName = 'mvp'; // replace this with your api name.
       const path = '/upload';
 
-      const myInit = {
-        body: {b64data}, // replace this with attributes you need
-        headers: {} // OPTIONAL
-      };
-
-      API.post(apiName, path, myInit)
-      .then((response) => {
-        // Add your code here
-        console.log(response)
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-
+     
 
       navigator.geolocation.getCurrentPosition((position) => {
         setLocation({
@@ -189,27 +176,44 @@ async function getData() {
 
      console.log( {base64Data: image});
     const data = {base64Data: image, coordinates: JSON.stringify(location)}
-    
-    fetch('https://2445-2603-8080-6300-b84-f135-a88c-f93a-f678.ngrok.io/upload', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-  if (data.success) {
-    console.log( data.labels,
-      setLabels(data.labels));
-  } else {
-    console.error('Upload failed: ' + data.message);
-  }})
-  .catch((error) => {
-    console.error('An error occurred:', error);});
 
-    setIsUploading(false); // Reset isUploading when done uploading
-  };
+    const myInit = {
+      body: {data}, // replace this with attributes you need
+      headers: {} // OPTIONAL
+    };
+
+    API.post(apiName, path, myInit)
+    .then((response) => {
+      // Add your code here
+      console.log(response)
+    })
+    .catch((error) => {
+      console.log(error.response);
+    });
+
+
+
+    
+  //   fetch('https://2445-2603-8080-6300-b84-f135-a88c-f93a-f678.ngrok.io/upload', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify(data),
+  // })
+  // .then((response) => response.json())
+  // .then((data) => {
+  // if (data.success) {
+  //   console.log( data.labels,
+  //     setLabels(data.labels));
+  // } else {
+  //   console.error('Upload failed: ' + data.message);
+  // }})
+  // .catch((error) => {
+  //   console.error('An error occurred:', error);});
+
+  //   setIsUploading(false); // Reset isUploading when done uploading
+  // };
 
   const capture = async () => {
     const screenshot = webcamRef.current.getScreenshot();
