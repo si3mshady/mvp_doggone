@@ -3,10 +3,10 @@ import Webcam from "react-webcam";
 import "./App.css";
 
 import { Amplify, API} from 'aws-amplify';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import awsconfig from './aws-exports';
+// import { withAuthenticator } from '@aws-amplify/ui-react';
+// import awsconfig from './aws-exports';
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
 
 
 
@@ -272,4 +272,4 @@ async function getData() {
     </div>
   );
 };
-export default withAuthenticator(App);
+export default App;
