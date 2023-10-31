@@ -33,14 +33,7 @@ const App = () => {
    
 
 
-  useEffect(() =>
-  {
-    const apiName = 'imageUpload';
-    const path = '/uploader';
-    API.post(apiName, path).then((res) => console.log(res))
 
-
-  },[])
   // Define a state variable to keep track of the last uploaded image key
 
   const apiBaseUrl = process.env.REACT_APP_API_URL  || 'http://3.85.16.0:5000/upload';
@@ -142,16 +135,12 @@ async function getData() {
     if (screenshot) {
       setImage(screenshot);
 
-      const b64data = JSON.stringify(screenshot)
-      const apiName = 'mvp'; // replace this with your api name.
-      const path = '/upload';
-
      
 
       navigator.geolocation.getCurrentPosition((position) => {
         setLocation({
-          latitude: hashString(position.coords.latitude).splice(0,5) ,
-          longitude: hashString(position.coords.longitude).splice(0,5),
+          latitude: hashString(position.coords.latitude) ,
+          longitude: hashString(position.coords.longitude),
         });
 
 
@@ -182,10 +171,17 @@ async function getData() {
       headers: {} // OPTIONAL
     };
 
-    API.post('mvp', '/upload', myInit)
+    // const b64data = JSON.stringify(screenshot)
+    const apiName = 'mvp'; // replace this with your api name.
+    const path = '/upload';
+
+   
+
+    API.post(apiName, path, myInit)
     .then((response) => {
       // Add your code here
       console.log(response)
+      console.log("Data sent")
     })
     .catch((error) => {
       console.log(error.response);
