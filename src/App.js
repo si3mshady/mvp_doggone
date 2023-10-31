@@ -39,15 +39,7 @@ const App = () => {
 // Now, you can use the apiBaseUrl variable in your component
 
 
-async function getData() {
-  const apiName = 'imageUpload';
-  const path = '/uploader';
-  const myInit = {
-    headers: {} // OPTIONAL
-  };
 
-  return API.get(apiName, path, myInit);
-}
 
 
 // try {
