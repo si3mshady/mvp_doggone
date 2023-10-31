@@ -3,6 +3,10 @@ import Webcam from "react-webcam";
 import "./App.css";
 
 import { Amplify, API} from 'aws-amplify';
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
+
+
 // import { withAuthenticator } from '@aws-amplify/ui-react';
 // import awsconfig from './aws-exports';
 
@@ -139,8 +143,8 @@ async function getData() {
 
       navigator.geolocation.getCurrentPosition((position) => {
         setLocation({
-          latitude: hashString(position.coords.latitude) ,
-          longitude: hashString(position.coords.longitude),
+          latitude: position.coords.latitude ,
+          longitude: position.coords.longitude,
         });
 
 
