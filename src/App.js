@@ -213,7 +213,7 @@ async function getData() {
   //   console.error('An error occurred:', error);});
 
   //   setIsUploading(false); // Reset isUploading when done uploading
-  // };
+  };
 
   const capture = async () => {
     const screenshot = webcamRef.current.getScreenshot();
@@ -314,4 +314,5 @@ async function getData() {
     </div>
   );
 };
+
 export default App;
