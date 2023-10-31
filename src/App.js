@@ -32,15 +32,6 @@ const App = () => {
 
    
 
-
-  useEffect(() =>
-  {
-    const apiName = 'imageUpload';
-    const path = '/uploader';
-    API.post(apiName, path).then((res) => console.log(res))
-
-
-  },[])
   // Define a state variable to keep track of the last uploaded image key
 
   const apiBaseUrl = process.env.REACT_APP_API_URL  || 'http://3.85.16.0:5000/upload';
