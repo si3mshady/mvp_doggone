@@ -164,11 +164,11 @@ async function getData() {
     setIsUploading(true); // Set isUploading to true while uploading
 
      console.log( {base64Data: image});
-    const data = {base64Data: image, coordinates: JSON.stringify(location)}
+    const data = JSON.stringify({base64Data: image, coordinates: JSON.stringify(location)})
 
     const myInit = {
       body: {data}, // replace this with attributes you need
-      headers: {} // OPTIONAL
+      // headers: {} // OPTIONAL
     };
 
     // const b64data = JSON.stringify(screenshot)
