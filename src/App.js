@@ -161,8 +161,6 @@ const App = () => {
     setIsCapturing(false); // Reset isCapturing when done capturing
   };
 
-
-
   const handleUploadNew = () => {
     console.log("sending data")
     setIsUploading(true); // Set isUploading to true while uploading
