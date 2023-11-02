@@ -178,7 +178,7 @@ async function getData() {
     const apiName = 'doggonepy3'; // replace this with your api name.
     const path = '/upload';
 
-    
+
    
 
     API.post(apiName, path, myInit)
@@ -186,6 +186,7 @@ async function getData() {
       // Add your code here
       console.log(response)
       console.log("Data sent")
+      setIsUploading(false); // Set
     })
     .catch((error) => {
       console.log(error.response);
