@@ -40,20 +40,20 @@ const App = () => {
 
   // Define a state variable to keep track of the last uploaded image key
 
-  const apiBaseUrl = process.env.REACT_APP_API_URL  || 'http://3.85.16.0:5000/upload';
+  // const apiBaseUrl = process.env.REACT_APP_API_URL  || 'http://3.85.16.0:5000/upload';
 
 // Now, you can use the apiBaseUrl variable in your component
 
 
-async function getData() {
-  const apiName = 'imageUpload';
-  const path = '/uploader';
-  const myInit = {
-    headers: {} // OPTIONAL
-  };
+// async function getData() {
+//   const apiName = 'imageUpload';
+//   const path = '/uploader';
+//   const myInit = {
+//     headers: {} // OPTIONAL
+//   };
 
-  return API.get(apiName, path, myInit);
-}
+//   return API.get(apiName, path, myInit);
+// }
 
 
 // try {
@@ -70,64 +70,64 @@ async function getData() {
 // }
 
 
-  const captureImage = async () => {
-    setCapturing(true);
-    // Capture logic here
-    setCapturing(false); // Reset capturing state when done
-  };
+//   const captureImage = async () => {
+//     setCapturing(true);
+//     // Capture logic here
+//     setCapturing(false); // Reset capturing state when done
+//   };
 
-  const handleUploadImage = async () => {
-    setUploading(true);
-    // Upload logic here
-    setUploading(false); // Reset uploading state when done
-  };
+//   const handleUploadImage = async () => {
+//     setUploading(true);
+//     // Upload logic here
+//     setUploading(false); // Reset uploading state when done
+//   };
 
-  async function sendImageToServer(data) {
+//   async function sendImageToServer(data) {
 
-    fetch(apiBaseUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-})
+//     fetch(apiBaseUrl, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+// })
 
-  }
+//   }
 
   
-  const handleUpload = () => {
+  // const handleUpload = () => {
 
-    console.log( {base64Data: image});
-    const data = {base64Data: image}
+  //   console.log( {base64Data: image});
+  //   const data = {base64Data: image}
     
-    fetch('http://3.85.16.0:5000/upload', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-  if (data.success) {
-    console.log( data.labels,
-      setLabels(data.labels));
-  } else {
-    console.error('Upload failed: ' + data.message);
-  }})
-  .catch((error) => {
-    console.error('An error occurred:', error);});
+  //   fetch('http://3.85.16.0:5000/upload', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify(data),
+  // })
+  // .then((response) => response.json())
+  // .then((data) => {
+  // if (data.success) {
+  //   console.log( data.labels,
+  //     setLabels(data.labels));
+  // } else {
+  //   console.error('Upload failed: ' + data.message);
+  // }})
+  // .catch((error) => {
+  //   console.error('An error occurred:', error);});
 
 
-  }
+  // }
 
-  function hashString(text) {
-    const encoder = new TextEncoder();
-    const encodedText = encoder.encode(text);
-    const hash = new Uint8Array(32);
-    crypto.subtle.digest("SHA-256", encodedText, hash);
-    return hash.join("");
-  }
+  // function hashString(text) {
+  //   const encoder = new TextEncoder();
+  //   const encodedText = encoder.encode(text);
+  //   const hash = new Uint8Array(32);
+  //   crypto.subtle.digest("SHA-256", encodedText, hash);
+  //   return hash.join("");
+  // }
   
   
   const captureNew = async () => {
@@ -164,6 +164,7 @@ async function getData() {
 
 
   const handleUploadNew = () => {
+    console.log("sending data")
     setIsUploading(true); // Set isUploading to true while uploading
 
      console.log( {base64Data: image});
@@ -177,9 +178,6 @@ async function getData() {
     // const b64data = JSON.stringify(screenshot)
     const apiName = 'doggonepy3'; // replace this with your api name.
     const path = '/upload';
-
-
-   
 
     API.post(apiName, path, myInit)
     .then((response) => {
@@ -216,28 +214,28 @@ async function getData() {
   //   setIsUploading(false); // Reset isUploading when done uploading
   };
 
-  const capture = async () => {
-    const screenshot = webcamRef.current.getScreenshot();
+  // const capture = async () => {
+  //   const screenshot = webcamRef.current.getScreenshot();
  
 
-    if (screenshot) {
-      setImage(screenshot)
+  //   if (screenshot) {
+  //     setImage(screenshot)
 
-      setImages([...images, screenshot]);
+  //     setImages([...images, screenshot]);
 
 
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLocation({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        });
-      });
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       setLocation({
+  //         latitude: position.coords.latitude,
+  //         longitude: position.coords.longitude,
+  //       });
+  //     });
 
       
-    } else {
-      console.log("Invalid image format. Please capture a PNG or JPEG image.");
-    }
-  };
+  //   } else {
+  //     console.log("Invalid image format. Please capture a PNG or JPEG image.");
+  //   }
+  // };
 
  
 
