@@ -200,9 +200,12 @@ const App = () => {
   })
   .then((response) => response.json())
   .then((data) => {
-  if (data.success) {
-    console.log( data.labels,
-      setLabels(data.labels));
+  if (data) {
+    console.log( data)
+
+
+
+      // setLabels(data.labels));
   } else {
     console.error('Upload failed: ' + data.message);
   }})
