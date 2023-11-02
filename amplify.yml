@@ -20,7 +20,7 @@ backend:
         - ln -fs /usr/local/bin/python3.8 /usr/bin/python3
         # - pip3 install --user pipenv
         # - amplifyPush --simple
-        - pip3 install -r requirements.txt
+        - pip3 install pillow
     # IMPORTANT - Please verify your build output directory
     artifacts:
       baseDirectory: .
