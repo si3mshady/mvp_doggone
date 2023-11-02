@@ -1,0 +1,31 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install
+  artifacts:
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+backend:
+  phases:
+    build:
+      commands:
+        - pip install -r requirements.txt
+    # IMPORTANT - Please verify your build output directory
+    artifacts:
+      baseDirectory: .
+      files:
+        - app.py
+        - requirements.txt
+  cache:
+    paths:
+      - /root/.cache/pip
+  dependencies:
+    - flask
+    - boto3re
