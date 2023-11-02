@@ -175,7 +175,7 @@ async function getData() {
     };
 
     // const b64data = JSON.stringify(screenshot)
-    const apiName = 'doggonepy'; // replace this with your api name.
+    const apiName = 'doggonepy3'; // replace this with your api name.
     const path = '/upload';
 
    
