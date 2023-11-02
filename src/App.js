@@ -176,42 +176,42 @@ const App = () => {
     };
 
     // const b64data = JSON.stringify(screenshot)
-    const apiName = 'doggonepy3'; // replace this with your api name.
-    const path = '/upload';
+    // const apiName = 'doggonepy3'; // replace this with your api name.
+    // const path = '/upload';
 
-    API.post(apiName, path, myInit)
-    .then((response) => {
-      // Add your code here
-      console.log(response)
-      console.log("Data sent")
-      setIsUploading(false); // Set
-    })
-    .catch((error) => {
-      console.log(error.response);
-    });
+    // API.post(apiName, path, myInit)
+    // .then((response) => {
+    //   // Add your code here
+    //   console.log(response)
+    //   console.log("Data sent")
+    //   setIsUploading(false); // Set
+    // })
+    // .catch((error) => {
+    //   console.log(error.response);
+    // });
 
 
 
     
-  //   fetch('https://2445-2603-8080-6300-b84-f135-a88c-f93a-f678.ngrok.io/upload', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify(data),
-  // })
-  // .then((response) => response.json())
-  // .then((data) => {
-  // if (data.success) {
-  //   console.log( data.labels,
-  //     setLabels(data.labels));
-  // } else {
-  //   console.error('Upload failed: ' + data.message);
-  // }})
-  // .catch((error) => {
-  //   console.error('An error occurred:', error);});
+    fetch('https://00ngobjr57.execute-api.us-east-1.amazonaws.com/dev/upload', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+  if (data.success) {
+    console.log( data.labels,
+      setLabels(data.labels));
+  } else {
+    console.error('Upload failed: ' + data.message);
+  }})
+  .catch((error) => {
+    console.error('An error occurred:', error);});
 
-  //   setIsUploading(false); // Reset isUploading when done uploading
+    setIsUploading(false); // Reset isUploading when done uploading
   };
 
   // const capture = async () => {
