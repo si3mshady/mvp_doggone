@@ -95,7 +95,7 @@ const App = () => {
   if (data) {
     console.log( data)
 
-      setLabels(data.labels.Labels)
+      setLabels(data.labels.Labels.Labels)
       console.log( labels)
   } else {
     console.error('Upload failed: ' + data.message);
