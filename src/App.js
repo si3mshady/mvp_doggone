@@ -96,7 +96,10 @@ const App = () => {
     console.log( data)
 
       setLabels(data.labels.Labels)
-      console.log( labels)
+
+      const keys = Object.keys(data);
+
+      console.log( keys)
   } else {
     console.error('Upload failed: ' + data.message);
   }})
