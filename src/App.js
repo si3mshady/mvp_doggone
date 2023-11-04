@@ -8,10 +8,7 @@ Amplify.configure(
   awsmobile
 );
 
-// import { withAuthenticator } from '@aws-amplify/ui-react';
-// import awsconfig from './aws-exports';
 
-// Amplify.configure(awsconfig);
 
 
 const App = () => {
@@ -28,106 +25,6 @@ const App = () => {
 
   const [resp, setResp] = React.useState("")
 
-    //replace this with the path you have configured on your API
-  // const myInit = {
-  //   body: {}, // replace this with attributes you need
-  //   headers: {} // OPTIONAL
-  // };
-
-   
-
-
-
-  // Define a state variable to keep track of the last uploaded image key
-
-  // const apiBaseUrl = process.env.REACT_APP_API_URL  || 'http://3.85.16.0:5000/upload';
-
-// Now, you can use the apiBaseUrl variable in your component
-
-
-// async function getData() {
-//   const apiName = 'imageUpload';
-//   const path = '/uploader';
-//   const myInit = {
-//     headers: {} // OPTIONAL
-//   };
-
-//   return API.get(apiName, path, myInit);
-// }
-
-
-// try {
-
-//   (async function() {
-//     const response = await getData();
-//     console.log(response)
-//   })();
-  
-// } catch (error) {
-
-//   console.log(error)
-  
-// }
-
-
-//   const captureImage = async () => {
-//     setCapturing(true);
-//     // Capture logic here
-//     setCapturing(false); // Reset capturing state when done
-//   };
-
-//   const handleUploadImage = async () => {
-//     setUploading(true);
-//     // Upload logic here
-//     setUploading(false); // Reset uploading state when done
-//   };
-
-//   async function sendImageToServer(data) {
-
-//     fetch(apiBaseUrl, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data),
-// })
-
-//   }
-
-  
-  // const handleUpload = () => {
-
-  //   console.log( {base64Data: image});
-  //   const data = {base64Data: image}
-    
-  //   fetch('http://3.85.16.0:5000/upload', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify(data),
-  // })
-  // .then((response) => response.json())
-  // .then((data) => {
-  // if (data.success) {
-  //   console.log( data.labels,
-  //     setLabels(data.labels));
-  // } else {
-  //   console.error('Upload failed: ' + data.message);
-  // }})
-  // .catch((error) => {
-  //   console.error('An error occurred:', error);});
-
-
-  // }
-
-  // function hashString(text) {
-  //   const encoder = new TextEncoder();
-  //   const encodedText = encoder.encode(text);
-  //   const hash = new Uint8Array(32);
-  //   crypto.subtle.digest("SHA-256", encodedText, hash);
-  //   return hash.join("");
-  // }
   
   
   const captureNew = async () => {
@@ -145,11 +42,6 @@ const App = () => {
           latitude: position.coords.latitude ,
           longitude: position.coords.longitude,
         });
-
-
-
-
-
 
 
 
@@ -203,9 +95,7 @@ const App = () => {
   if (data) {
     console.log( data)
 
-
-
-      // setLabels(data.labels));
+      setLabels(data.labels)
   } else {
     console.error('Upload failed: ' + data.message);
   }})
@@ -215,30 +105,6 @@ const App = () => {
     setIsUploading(false); // Reset isUploading when done uploading
   };
 
-  // const capture = async () => {
-  //   const screenshot = webcamRef.current.getScreenshot();
- 
-
-  //   if (screenshot) {
-  //     setImage(screenshot)
-
-  //     setImages([...images, screenshot]);
-
-
-  //     navigator.geolocation.getCurrentPosition((position) => {
-  //       setLocation({
-  //         latitude: position.coords.latitude,
-  //         longitude: position.coords.longitude,
-  //       });
-  //     });
-
-      
-  //   } else {
-  //     console.log("Invalid image format. Please capture a PNG or JPEG image.");
-  //   }
-  // };
-
- 
 
   const webcamRef = React.useRef(null);
 
