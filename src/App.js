@@ -96,7 +96,7 @@ const App = () => {
   if (data) {
     console.log( data)
 
-      setLabels(data.labels)
+      setLabels(data.labels.Labels)
       // const keys = Object.keys(data);
 
       console.log( data.labels)
