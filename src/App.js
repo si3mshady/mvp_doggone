@@ -96,6 +96,7 @@ const App = () => {
     console.log( data)
 
       setLabels(data.labels)
+      console.log( labels)
   } else {
     console.error('Upload failed: ' + data.message);
   }})
