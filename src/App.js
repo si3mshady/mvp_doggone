@@ -21,6 +21,7 @@ const App = () => {
   const [isCapturing, setIsCapturing] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [data, setPostData] = useState({body: {}, headers: {}});
+  const [facingMode, setFacingMode] = useState("user"); 
 
 
   const [resp, setResp] = React.useState("")
@@ -110,6 +111,13 @@ const App = () => {
 
 
   const webcamRef = React.useRef(null);
+
+
+  // Function to toggle between the front and back camera
+  const toggleCamera = () => {
+    setFacingMode((prevMode) => (prevMode === "user" ? "environment" : "user"));
+  };
+
 
   return (
     <div className="app-container">
