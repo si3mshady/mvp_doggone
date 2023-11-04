@@ -145,10 +145,6 @@ const App = () => {
           )
         )} */}
 
-        {isUploading && (
-          // Show a spinner while uploading
-          <div className="spinner"></div>
-        )}
 
             {labels.length > 0 && (
           <div className="labels">
